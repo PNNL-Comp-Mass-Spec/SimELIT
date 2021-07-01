@@ -1,0 +1,75 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+application     ratAcetalTransFoam;
+
+startFrom       startTime;
+
+startTime       0.0;
+
+stopAt          endTime;
+
+//stopAt          writeNow;
+
+endTime         1.0e-04;
+
+deltaT          5.0e-08;
+
+writeControl    adjustableRunTime;
+
+writeInterval   1.0e-07;
+
+purgeWrite      125;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression off;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+adjustTimeStep yes;
+
+maxCo 1.0;
+
+maxDeltaT 1.0e-07;
+
+/*functions
+{
+    writeCloudOldStyle1
+    {
+        type        writeCloudOldStyle;
+        libs        ("liblagrangianExtraFunctionObjects.so");
+
+        writeControl writeTime;
+
+        clouds
+        (
+            kinematicCloud
+        );
+    }
+}*/
+// libs "$FOAM_USER_LIBBIN/libPimpleLPTEstLagrangianIntermediate.so"
+
+
+
+// ************************************************************************* //
+

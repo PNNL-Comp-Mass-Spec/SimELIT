@@ -1,0 +1,9 @@
+pandas
+flask-restful
+flask
+python-dotenv
+celery
+redis
+flask-socketio==4.3.2
+flask_cors
+PyFoam

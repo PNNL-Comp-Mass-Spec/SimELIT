@@ -1,0 +1,123 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createPatchDict;
+}
+
+pointSync false;
+
+// Patches to create.
+patches
+(
+    {   
+        // Name of new patch
+        name trial_2;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {   
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (comp12 comp11);
+
+    }
+    {   
+        // Name of new patch
+        name trial_3;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {   
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (comp10 comp9);
+
+    }
+    {   
+        // Name of new patch
+        name trial_4;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {   
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (comp7 comp8);
+
+    }
+    {   
+        // Name of new patch
+        name trial_5;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {   
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (comp5 comp6);
+
+    }
+    {   
+        // Name of new patch
+        name trial_6;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {   
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (comp3 comp4);
+
+    }
+    {   
+        // Name of new patch
+        name trial_7;
+
+        // Dictionary to construct new patch from
+        patchInfo
+        {   
+            type wall;
+        }
+
+        // How to construct: either from 'patches' or 'set'
+        constructFrom patches;
+
+        // If constructFrom = patches : names of patches. Wildcards allowed.
+        patches (comp1 comp2);
+
+    }
+);

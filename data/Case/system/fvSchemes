@@ -1,0 +1,76 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.x                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+ default         Euler;
+}
+
+gradSchemes
+{
+ default         Gauss linear;
+ grad(p)         Gauss linear;
+ grad(U)         Gauss linear;
+ grad(ElPot)     Gauss linear;
+}
+
+divSchemes
+{
+ default         none;
+ div(phi,T)      Gauss upwind;
+ div(phi,U)      Gauss upwind;
+ div(phi,k)      Gauss upwind;
+ div(phi,epsilon) Gauss upwind;
+ div(phi,omega)  Gauss upwind;
+ div(phi,R)      Gauss limitedLinear 1;
+ div(R)          Gauss linear;
+ div(phi,nuTilda) Gauss limitedLinear 1;
+ div((nuEff*dev2(T(grad(U))))) Gauss linear;
+ 
+}
+
+laplacianSchemes
+{
+ default         none;
+ laplacian(DT,T) Gauss linear limited 0.333;
+ laplacian(nuEff,U) Gauss linear limited 0.333;
+ laplacian((1|A(U)),p) Gauss linear limited 0.333;
+ laplacian(DkEff,k) Gauss linear limited 0.333;
+ laplacian(DepsilonEff,epsilon) Gauss linear limited 0.333;
+ laplacian(DomegaEff,omega) Gauss linear limited 0.333;
+ laplacian(DREff,R) Gauss linear limited 0.333;
+ laplacian(DnuTildaEff,nuTilda) Gauss linear limited 0.333;
+ laplacian(rAUf,p) Gauss linear limited 0.333;
+ laplacian(ElPot) Gauss linear limited 0.333;
+}
+
+interpolationSchemes
+{
+ default         linear;
+ interpolate(U)  linear;
+}
+
+snGradSchemes
+{
+ default         limited 0.333;
+}
+
+fluxRequired
+{
+ default         no;
+}
+
+// ************************************************************************* //

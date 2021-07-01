@@ -1,0 +1,46 @@
+version: '3.1'
+
+services:
+    backend:
+        # build: './backend'
+        build:
+            context: .
+            dockerfile: './backend/Dockerfile'
+        links:
+            - redis
+        depends_on:
+            - redis
+        ports:
+            - 5000:5000
+        volumes:
+            - ./backend:/usr/src/backend
+            - ./data:/usr/src/temp/
+        command: flask run --host=0.0.0.0
+    redis:
+        container_name: redis
+        image: redis:5.0.5
+        hostname: redis
+    worker:
+        build:
+            context: .
+            dockerfile: './backend/Dockerfile'
+        hostname: worker
+        command: /bin/bash -c "source /opt/openfoam7/etc/bashrc && wmake all /usr/src/data && celery -A simulate.celery worker --loglevel=DEBUG"
+        volumes:
+            - ./backend:/usr/src/backend
+            - ./data:/usr/src/temp/
+        links:
+          - redis
+        depends_on:
+          - redis
+    frontend:
+        # https://github.com/facebook/create-react-app/issues/8688
+        stdin_open: true
+        tty: true
+        build: './openfoam-app'
+        ports:
+            - 3000:3000
+        volumes:
+            - ./openfoam-app/src:/usr/src/app/src
+            - ./openfoam-app/public:/usr/src/app/public
+        command: npm start

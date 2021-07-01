@@ -1,0 +1,199 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  4.x                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      kinematicCloudProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solution
+{
+    active          true;
+    coupled         true;
+    transient       yes;
+    cellValueSourceCorrection off;
+    maxCo           0.3; 
+
+    interpolationSchemes
+    {
+        rho             cell;
+        U               cellPoint;
+        mu              cell;
+        DUcDt           cell;
+	E 		cellPoint;
+    }
+
+    integrationSchemes
+    {
+        U               Euler;
+    }
+
+    sourceTerms
+    {
+        schemes
+        {
+            U           semiImplicit 1;
+        }
+    }
+}
+
+constantProperties
+{
+    rho0            8800;
+    youngsModulus   1.3e5;
+    poissonsRatio   0.35;
+}
+
+subModels
+{
+    particleForces
+    {
+/*      sphereDrag;
+        
+        gravity;
+        
+        pressureGradient
+        {
+            U U;
+        }*/
+	electrostatic
+            {
+               charge         	    -6.0e-10;
+               Efield	              E;
+            }
+
+    }
+
+    injectionModels
+    {
+	model1
+	{
+            type             patchInjection;
+            patchName        ehv; //inlet;
+			//patch	     ehv; 
+            duration         2.0e-07;
+			parcelsPerSecond 1.0e+07;
+            massTotal        0; //1.033e-24;
+            parcelBasisType  fixed;
+            flowRateProfile  constant 1;
+            nParticle        1;
+            SOI              1.0e-07;
+            U0               (1.0 0 0);
+            sizeDistribution
+            {
+                type        fixedValue;
+                fixedValueDistribution
+                {
+                    value   1.0e-07;
+                }
+            }
+
+	   /* type            coneInjection;
+            SOI             0;
+            massTotal       6.0e-4;
+            parcelBasisType mass;
+            injectionMethod disc;
+            flowType        flowRateAndDischarge;
+            outerDiameter   1.5e-3;
+            innerDiameter   0;
+            duration        1.8e-3;
+            position        (0 0.0125 0.0125);
+            direction       (1 0 0);
+            parcelsPerSecond 2000000;
+            flowRateProfile table
+            (
+                (0              100)
+                (0.0018         100)
+		(0.05		0)
+            );
+
+            Cd              constant 0.9;
+
+            thetaInner      constant 0.0;
+            thetaOuter      constant 15.0;
+
+            sizeDistribution
+            {
+                type        RosinRammler;
+
+                RosinRammlerDistribution
+                {
+                    minValue        1e-06;
+                    maxValue        0.00015;
+                    d               0.00015;
+                    n               3;
+                }
+            }*/
+
+        }
+    }
+
+    dispersionModel none;
+
+    patchInteractionModel standardWallInteraction;
+
+    standardWallInteractionCoeffs
+    {
+        type escape; /*rebound;
+        e    0.97;
+        mu   0.09;*/
+    }
+
+    surfaceFilmModel none;
+
+    stochasticCollisionModel none;
+    
+    collisionModel none;    
+
+    pairCollisionCoeffs
+    {
+        maxInteractionDistance  0.00007;
+
+        writeReferredParticleCloud no;
+
+        pairModel pairSpringSliderDashpot;
+
+        pairSpringSliderDashpotCoeffs
+        {
+            useEquivalentSize   no;
+            alpha               0.12;
+            b                   1.5;
+            mu                  0.52;
+            cohesionEnergyDensity 0;
+            collisionResolutionSteps 12;
+        };
+        
+        wallModel wallSpringSliderDashpot;
+
+        wallSpringSliderDashpotCoeffs
+        {
+            useEquivalentSize no;
+            collisionResolutionSteps 12;
+            youngsModulus   1e10;
+            poissonsRatio   0.23;
+            alpha           0.12;
+            b               1.5;
+            mu              0.43;
+            cohesionEnergyDensity 0;
+        };
+    }
+}
+
+cloudFunctions
+{
+    voidFraction1
+    {
+        type            voidFraction;
+    }
+}
+
+// ************************************************************************* //

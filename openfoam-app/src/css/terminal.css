@@ -1,0 +1,12 @@
+.log-terminal
+{
+  /*float : right;*/
+  height : 300px;
+  /*width : 250px; */
+  padding : 3px;
+  background : #000;
+  color : #fff;
+  overflow : auto;
+  /*display: flex;
+  flex-direction: column-reverse*/
+}
