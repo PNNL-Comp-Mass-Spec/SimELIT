@@ -1,4 +1,4 @@
-# OpenFOAM GUI
+# MQSim
 
 This is a web-based GUI application to control and edit the OpenFOAM applications. 
 
