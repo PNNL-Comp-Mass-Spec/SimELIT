@@ -1,6 +1,6 @@
 # SimELIT
 
-SimELIT is a novel ion trajectory simula-tion platform, which stands for the **Sim**ulator of **E**ulerian and **L**agrangian **I**on **T**rajectories. This provides a web-based GUI application to control and edit the OpenFOAM applications. 
+SimELIT is a novel ion trajectory simulation platform, which stands for the **Sim**ulator of **E**ulerian and **L**agrangian **I**on **T**rajectories. This provides a web-based GUI application to control and edit the OpenFOAM applications. 
 
 
 # Requirements
