@@ -1,6 +1,6 @@
-# MQSim
+# SimELIT
 
-This is a web-based GUI application to control and edit the OpenFOAM applications. 
+SimELIT is a novel ion trajectory simula-tion platform, which stands for the **Sim**ulator of **E**ulerian and **L**agrangian **I**on **T**rajectories. This provides a web-based GUI application to control and edit the OpenFOAM applications. 
 
 
 # Requirements
@@ -47,4 +47,4 @@ Website: https://omics.pnl.gov/ or https://panomics.pnnl.gov/
 
 
 ## License ##
-AutoCCS is licensed under the BSD 2-Clause License; [License](license.txt)
+SimELIT is licensed under the BSD 2-Clause License; [License](license.txt)
