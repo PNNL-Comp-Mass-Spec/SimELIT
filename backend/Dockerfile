@@ -57,4 +57,4 @@ EXPOSE 5000
 USER foam
 
 FROM base
-# RUN /bin/bash -c "source /opt/openfoam7/etc/bashrc && wclean all /usr/src/data && wmake all /usr/src/data"
+RUN ["/bin/bash", "-c", "source ~/.bashrc && source /opt/openfoam7/etc/bashrc && wclean all /usr/src/data && wmake all /usr/src/data"]

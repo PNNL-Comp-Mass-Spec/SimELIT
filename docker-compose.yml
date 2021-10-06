@@ -25,7 +25,7 @@ services:
             context: .
             dockerfile: './backend/Dockerfile'
         hostname: worker
-        command: /bin/bash -c "source /opt/openfoam7/etc/bashrc && wmake all /usr/src/data && celery -A simulate.celery worker --loglevel=DEBUG"
+        command: /bin/bash -c "source /opt/openfoam7/etc/bashrc && wmake all /usr/src/data && celery -A simulate.celery worker --pool=solo --loglevel=DEBUG"
         volumes:
             - ./backend:/usr/src/backend
             - ./data:/usr/src/temp/
