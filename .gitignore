@@ -5,7 +5,6 @@ __pycache__/
 .ipynb_checkpoints
 openfoam-app/node_modules
 openfoam-app/.ipynb_checkpoints
-data/caseFolder
 backend/logfile.txt
 /node_modules
 /.pnp
