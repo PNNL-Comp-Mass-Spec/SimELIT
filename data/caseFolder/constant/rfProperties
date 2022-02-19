@@ -1,0 +1,27 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      rfProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+
+Vamplitude              [1 2 -3 0 0 -1 0]   150;        // 
+RFfreq                  [0 0 -1 0 0 0 0]    1.0e6;      //
+NiterVrfMax             [0 0 0 0 0 0 0]     10;         // Solver Control:number of times Vrf is solved
+timedimensionProxy      [0 0 1 0 0 0 0]     1;   // a proxy value to enable calc of runTime.value()*RFfreq in a cosine
+
+
+
+// ************************************************************************* //

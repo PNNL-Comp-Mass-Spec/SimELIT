@@ -1,0 +1,25 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      solverProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+
+UserChoice_EffPot       [0 0 0 0 0 0 0]  1;     //if 1 the effective potential approach is used else exact numerical approach is used
+NiterVrfMax             [0 0 0 0 0 0 0]  10;    // Solver Control:number of times Vpseudo is solved
+CCSvsK0					[0 0 0 0 0 0 0]  1;     //(1) uses CCS valUe    (2) uses reduced mobility   
+
+
+// ************************************************************************* //

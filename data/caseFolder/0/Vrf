@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      Vrf;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];  // Non-dimensional RF states need to be applied here
+
+internalField   uniform 0;
+
+boundaryField
+{
+    es1
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    es2
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+
+    erf1
+    {
+        type            fixedGradient;
+        gradient        uniform 0;
+    }
+
+    erf2
+    {
+        type            fixedGradient;
+        gradient        uniform 0;
+    }
+}
+
+
+// ************************************************************************* //

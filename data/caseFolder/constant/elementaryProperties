@@ -1,0 +1,27 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      ionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+
+elemQ                   [0 0 1 0 0 1 0]      1.602e-19;
+avagadroN               [0 0 0 0 0 0 0]     6.023e23;
+kBoltz		        	[1 2 -2 -1 0 0 0]    1.38065e-23;
+p0                      [1 -1 -2 0 0 0 0]      101325;
+
+
+
+// ************************************************************************* //

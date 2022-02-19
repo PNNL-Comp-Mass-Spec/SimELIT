@@ -1,0 +1,26 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      ionProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+
+DaltonIon               [1 0 0 0 0 0 0] 622;  //Mass of Ion ins Daltons
+zstateIon               [0 0 0 0 0 0 0] 1;    //Ion charge State
+SpHtRatioIon            [0 0 0 0 0 0 0] 1.2;  
+IonCCS                  [0 2 0 0 0 0 0] 3.0e-18;  //a gas neutral collision cross section
+K0reduced               [-1 0 2 0 0 1 0] 1.14e-4;  //reduced mobility
+
+// ************************************************************************* //
