@@ -31,6 +31,8 @@ docker-compose up
 ```
 
 
+**note:** 7-Zip is recommended for unzipping the dowloaded repository as the Windows provided utility for unzipping may fail due to large path lengths. 
+
 
 ## Contacts ##
 Written by Joon-Yong Lee and Cameron Giberson for the Department of Energy (PNNL, Richland, WA)\
