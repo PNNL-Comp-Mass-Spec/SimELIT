@@ -37,7 +37,7 @@ docker-compose up
 ## Contacts ##
 Written by Joon-Yong Lee and Cameron Giberson for the Department of Energy (PNNL, Richland, WA)\
 Copyright 2021, Battelle Memorial Institute. All Rights Reserved.\
-E-mail: joonyong.lee@pnnl.gov or cameron.giberson@pnnl.gov or proteomics@pnnl.gov\
+E-mail: cameron.giberson@pnnl.gov or proteomics@pnnl.gov\
 Website: https://omics.pnl.gov/ or https://panomics.pnnl.gov/
 
 
